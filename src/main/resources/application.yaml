@@ -5,9 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: '{Your-Github-Repository-SSH}'
-          passphrase: '{SSH-PW}'
+          uri: 'git@github.com:ReservationMSAProject/configs.git'
+          passphrase: 'ssskeyo'
           ignore-local-ssh-settings: false
+          default-label: main
 server:
   port: 8888
 

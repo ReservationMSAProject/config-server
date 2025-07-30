@@ -15,10 +15,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-//    @Value("${private.key.id}")
+    @Value("${private.security.key.id}")
     private String privateKeyId;
 
-//    @Value("${private.key.pwd}")
+    @Value("${private.security.key.pwd}")
     private String privateKeyPwd;
 
     @Bean
@@ -31,8 +31,8 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         return new InMemoryUserDetailsManager(
                 User.builder()
-                        .username("admin")
-                        .password(passwordEncoder().encode("1234"))
+                        .username(privateKeyId)
+                        .password(passwordEncoder().encode(privateKeyPwd))
                         .roles("ADMIN")
                         .build()
         );
